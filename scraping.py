@@ -56,7 +56,7 @@ def keyword_search(articles, keywords):
                 title = article.find('h1').find('span').text
                 hub_datetime = article.find(class_='tm-article-snippet__datetime-published').find('time').attrs['title']
                 hub_date, hub_time = hub_datetime.split(', ')
-                result = hub_date + ' - ' + title + ' - ' + link
+                result = hub_date + ' - ' + title + ' - ' + link + ' - ' + str(set(keywords) & set(hub_list)) # добавил + ' - ' + str(set(keywords) & set(hub_list)) чтоб видеть ключевые слова
                 print(result)
                 return result
 
